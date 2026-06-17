@@ -31,10 +31,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-zinc-900 dark:text-zinc-50 font-sans selection:bg-teal-500 selection:text-white relative">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-zinc-900 dark:text-zinc-50 font-sans selection:bg-teal-500 selection:text-white relative print:bg-white print:text-black">
       
       {/* Dynamic Ambient Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden flex justify-center">
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden flex justify-center print:hidden">
         {/* Subtle Tech Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
         
@@ -47,7 +47,7 @@ export default function Home() {
       {/* Main Content Wrapper */}
       <div className="relative z-10">
         {/* Navigation */}
-        <nav className="fixed w-full z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800/50">
+        <nav className="fixed w-full z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800/50 print:hidden">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <span className="text-xl font-bold tracking-tighter">Faizrashid.</span>
           <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-600 dark:text-zinc-400">
@@ -73,7 +73,12 @@ export default function Home() {
         </div>
       </nav>
 
-      <main className="max-w-5xl mx-auto px-6 pt-32 pb-24">
+      <div className="hidden print:block max-w-5xl mx-auto px-6 pt-10 text-center border-b border-zinc-300 pb-6 mb-10">
+        <h1 className="text-3xl font-bold mb-2 text-black">Faizrashid Portofolio</h1>
+        <p className="text-zinc-600">https://faizrashid-portofolio.vercel.app/</p>
+      </div>
+
+      <main className="max-w-5xl mx-auto px-6 pt-32 pb-24 print:pt-0">
         {/* Hero Section */}
         <section id="hero" className="py-20 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
           <div className="flex-1 flex flex-col items-start text-center md:text-left">
@@ -116,7 +121,7 @@ export default function Home() {
         </section>
 
         {/* Experience & Education Section */}
-        <section id="about" className="py-20 border-t border-zinc-200 dark:border-zinc-800/50">
+        <section id="about" className="py-20 border-t border-zinc-200 dark:border-zinc-800/50 print:break-before-page">
           <AnimateOnScroll animation="fade-up">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Work Experience */}
@@ -127,7 +132,7 @@ export default function Home() {
                 </div>
                 Work Experience
               </h2>
-              <div className="relative pl-8 border-l-2 border-zinc-200 dark:border-zinc-800 pb-8">
+              <div className="relative pl-8 border-l-2 border-zinc-200 dark:border-zinc-800 pb-8 print:break-inside-avoid">
                 <span className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-teal-500 ring-4 ring-white dark:ring-[#0a0a0a]"></span>
                 <h3 className="text-xl font-bold">Software Engineer</h3>
                 <p className="text-teal-600 dark:text-teal-400 font-medium mb-1">Telkomsel</p>
@@ -139,7 +144,7 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="relative pl-8 border-l-2 border-zinc-200 dark:border-zinc-800 pb-8">
+              <div className="relative pl-8 border-l-2 border-zinc-200 dark:border-zinc-800 pb-8 print:break-inside-avoid">
                 <span className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-zinc-300 dark:bg-zinc-700 ring-4 ring-white dark:ring-[#0a0a0a]"></span>
                 <h3 className="text-xl font-bold">Internship IT App Developer</h3>
                 <p className="text-zinc-900 dark:text-zinc-200 font-medium mb-1">CV. DBKlik</p>
@@ -150,7 +155,7 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="relative pl-8 border-l-2 border-zinc-200 dark:border-zinc-800">
+              <div className="relative pl-8 border-l-2 border-zinc-200 dark:border-zinc-800 print:break-inside-avoid">
                 <span className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-zinc-300 dark:bg-zinc-700 ring-4 ring-white dark:ring-[#0a0a0a]"></span>
                 <h3 className="text-xl font-bold">Internship Website Developer</h3>
                 <p className="text-zinc-900 dark:text-zinc-200 font-medium mb-1">Telkomsel</p>
@@ -170,7 +175,7 @@ export default function Home() {
                 </div>
                 Education
               </h2>
-              <div className="relative pl-8 border-l-2 border-zinc-200 dark:border-zinc-800">
+              <div className="relative pl-8 border-l-2 border-zinc-200 dark:border-zinc-800 print:break-inside-avoid">
                 <span className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-zinc-300 dark:bg-zinc-700 ring-4 ring-white dark:ring-[#0a0a0a]"></span>
                 <h3 className="text-xl font-bold">Undergraduate Student</h3>
                 <p className="text-zinc-900 dark:text-zinc-200 font-medium mb-1">Electronic Engineering Polytechnic Institute of Surabaya (PENS)</p>
@@ -185,7 +190,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-20 border-t border-zinc-200 dark:border-zinc-800/50">
+        <section id="skills" className="py-20 border-t border-zinc-200 dark:border-zinc-800/50 print:break-before-page">
           <AnimateOnScroll animation="fade-up">
             <div className="bg-zinc-50 dark:bg-[#111] rounded-3xl p-8 md:p-12 border border-zinc-200 dark:border-zinc-800/50">
             <h2 className="text-3xl font-bold tracking-tight mb-8">Skills & Technologies</h2>
@@ -268,13 +273,13 @@ export default function Home() {
         </section>
 
         {/* Credentials & Certifications Section */}
-        <section id="credentials" className="py-20 border-t border-zinc-200 dark:border-zinc-800/50">
+        <section id="credentials" className="py-20 border-t border-zinc-200 dark:border-zinc-800/50 print:break-before-page">
           <AnimateOnScroll animation="fade-up">
           <h2 className="text-3xl font-bold tracking-tight mb-10">Credentials & Certifications</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             
             {/* Cert 1: Telkomsel */}
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800/80 hover:border-teal-500/50 transition-colors">
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800/80 hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300">
               <div className="w-12 h-12 flex-shrink-0 bg-white rounded-xl flex items-center justify-center shadow-sm border border-zinc-100 dark:border-zinc-800 relative overflow-hidden p-1.5">
                 <div className="relative w-full h-full">
                   <Image src="/images/telkomsel.jpg" alt="Telkomsel" fill className="object-contain" />
@@ -287,7 +292,7 @@ export default function Home() {
             </div>
 
             {/* Cert 2: DBKlik */}
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800/80 hover:border-teal-500/50 transition-colors">
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800/80 hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300">
               <div className="w-12 h-12 flex-shrink-0 bg-white rounded-xl flex items-center justify-center shadow-sm border border-zinc-100 dark:border-zinc-800 relative overflow-hidden p-1.5">
                 <div className="relative w-full h-full">
                   <Image src="/images/dbklik.jpg" alt="DBKlik" fill className="object-contain" />
@@ -300,7 +305,7 @@ export default function Home() {
             </div>
 
             {/* Cert 3: PEPT PENS */}
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800/80 hover:border-teal-500/50 transition-colors">
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800/80 hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300">
               <div className="w-12 h-12 flex-shrink-0 bg-white rounded-xl flex items-center justify-center shadow-sm border border-zinc-100 dark:border-zinc-800 relative overflow-hidden p-1.5">
                 <div className="relative w-full h-full">
                   <Image src="/images/pens.jpg" alt="PENS" fill className="object-contain" />
@@ -313,7 +318,7 @@ export default function Home() {
             </div>
 
             {/* Cert 4: Digital Talent */}
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800/80 hover:border-teal-500/50 transition-colors">
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800/80 hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300">
               <div className="w-12 h-12 flex-shrink-0 bg-white rounded-xl flex items-center justify-center shadow-sm border border-zinc-100 dark:border-zinc-800 relative overflow-hidden p-1.5">
                 <div className="relative w-full h-full">
                   <Image src="/images/digital talent.png" alt="Digital Talent" fill className="object-contain" />
@@ -330,13 +335,13 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-20 border-t border-zinc-200 dark:border-zinc-800/50">
+        <section id="projects" className="py-20 border-t border-zinc-200 dark:border-zinc-800/50 print:break-before-page">
           <AnimateOnScroll animation="fade-up">
           <h2 className="text-3xl font-bold tracking-tight mb-10">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Project Card 1: Blanjapoin */}
-            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors">
-              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden">
+            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300 print:shadow-sm">
+              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden print:aspect-auto">
                 <ImageSlider 
                   images={[
                     "/images/blanjapoin1.png",
@@ -360,8 +365,8 @@ export default function Home() {
             </div>
 
             {/* Project Card 2: Online Travel */}
-            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors">
-              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden">
+            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300 print:shadow-sm">
+              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden print:aspect-auto">
                 <ImageSlider 
                   images={[
                     "/images/travel1.png",
@@ -387,8 +392,8 @@ export default function Home() {
             </div>
 
             {/* Project Card 3: DBDev */}
-            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors">
-              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden">
+            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300 print:shadow-sm">
+              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden print:aspect-auto">
                 <ImageSlider 
                   images={[
                     "/images/dbdev_1.png",
@@ -413,8 +418,8 @@ export default function Home() {
             </div>
 
             {/* Project Card 4: Product Portal */}
-            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors">
-              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden">
+            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300 print:shadow-sm">
+              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden print:aspect-auto">
                 <ImageSlider 
                   images={[
                     "/images/portal1.png",
@@ -438,13 +443,13 @@ export default function Home() {
             </div>
 
             <div 
-              className={`col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 overflow-hidden transition-all duration-1000 ease-in-out ${
+              className={`col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 overflow-hidden transition-all duration-1000 ease-in-out print:!max-h-none print:!opacity-100 print:!mt-0 print:!pointer-events-auto print:!visible print:!block ${
                 showAllProjects ? "max-h-[5000px] opacity-100 mt-0" : "max-h-0 opacity-0 -mt-8 pointer-events-none"
               }`}
             >
                 {/* Project Card 5: TokoDigi */}
-            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors">
-              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden">
+            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300 print:shadow-sm">
+              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden print:aspect-auto">
                 <ImageSlider 
                   images={[
                     "/images/tokodigi1.png",
@@ -468,8 +473,8 @@ export default function Home() {
             </div>
 
             {/* Project Card 6: RAFI */}
-            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors">
-              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden">
+            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300 print:shadow-sm">
+              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden print:aspect-auto">
                 <ImageSlider 
                   images={[
                     "/images/rafi.png"
@@ -492,8 +497,8 @@ export default function Home() {
             </div>
 
             {/* Project Card 7: KuotaUmroh */}
-            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors">
-              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden">
+            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300 print:shadow-sm">
+              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden print:aspect-auto">
                 <ImageSlider 
                   images={[
                     "/images/kuotaumroh1.png",
@@ -517,8 +522,8 @@ export default function Home() {
             </div>
 
             {/* Project Card 8: Water Quality */}
-            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors">
-              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden">
+            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300 print:shadow-sm">
+              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden print:aspect-auto">
                 <ImageSlider 
                   images={[
                     "/images/water.png"
@@ -542,8 +547,8 @@ export default function Home() {
             </div>
 
             {/* Project Card 9: ScanIMEI */}
-            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors">
-              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden">
+            <div className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-[#111] hover:border-teal-500/50 transition-colors print:break-inside-avoid print:border-zinc-300 print:shadow-sm">
+              <div className="aspect-video bg-zinc-200 dark:bg-[#1a1a1a] relative overflow-hidden print:aspect-auto">
                 <ImageSlider 
                   images={[
                     "/images/scanimei1.png"
@@ -570,7 +575,7 @@ export default function Home() {
           <div className="mt-12 flex justify-center">
             <button 
               onClick={() => setShowAllProjects(!showAllProjects)}
-              className="px-8 py-3 rounded-full border border-zinc-200 dark:border-zinc-800 hover:border-teal-500 dark:hover:border-teal-500/50 text-zinc-900 dark:text-zinc-100 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors bg-white dark:bg-[#111] flex items-center gap-2 group"
+              className="px-8 py-3 rounded-full border border-zinc-200 dark:border-zinc-800 hover:border-teal-500 dark:hover:border-teal-500/50 text-zinc-900 dark:text-zinc-100 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors bg-white dark:bg-[#111] flex items-center gap-2 group print:hidden"
             >
               {showAllProjects ? (
                 <>View Less Projects <svg className="w-4 h-4 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" /></svg></>
@@ -583,7 +588,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 mt-10 border-t border-zinc-200 dark:border-zinc-800/50 pt-20">
+        <section id="contact" className="py-20 mt-10 border-t border-zinc-200 dark:border-zinc-800/50 pt-20 print:break-before-page">
           <AnimateOnScroll animation="fade-up">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">

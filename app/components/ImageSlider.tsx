@@ -44,7 +44,7 @@ export default function ImageSlider({ images, altPrefix }: ImageSliderProps) {
 
   return (
     <>
-      <div className="relative w-full h-full group" onClick={() => setIsFullscreen(true)}>
+      <div className="relative w-full h-full group print:hidden" onClick={() => setIsFullscreen(true)}>
         {/* Images */}
         <div className="relative w-full h-full overflow-hidden">
           {images.map((img, index) => (
@@ -124,6 +124,12 @@ export default function ImageSlider({ images, altPrefix }: ImageSliderProps) {
             </div>
           </>
         )}
+      </div>
+
+      {/* Print-only static fallback */}
+      <div className="hidden print:block w-full border-b border-zinc-200">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={images[0]} alt={`${altPrefix} print version`} className="w-full h-auto object-contain" />
       </div>
 
       {/* Fullscreen Modal */}

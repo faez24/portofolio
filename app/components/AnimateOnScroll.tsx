@@ -54,7 +54,7 @@ export default function AnimateOnScroll({
   return (
     <div
       ref={ref}
-      className={`transition-all ${className} ${isVisible ? "opacity-100 translate-y-0 translate-x-0" : hiddenClass}`}
+      className={`transition-all ${className} ${isVisible ? "opacity-100 translate-y-0 translate-x-0" : hiddenClass} print:opacity-100 print:translate-y-0 print:translate-x-0`}
       style={{
         transitionDuration: `${duration}ms`,
         transitionDelay: `${delay}ms`,

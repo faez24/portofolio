@@ -24,3 +24,179 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ============================================
+   PRINT STYLES - Clean PDF output
+   ============================================ */
+@media print {
+  /* Force color printing */
+  * {
+    color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    background: white !important;
+    color: black !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Kill ALL animations and transforms instantly */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Hide non-printable elements */
+  nav,
+  .animate-ping,
+  .animate-pulse {
+    display: none !important;
+  }
+
+  /* Remove padding-top since navbar is hidden */
+  main {
+    padding-top: 0 !important;
+  }
+
+  /* ---- HERO ---- */
+  #hero {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    padding: 1rem 0 !important;
+    flex-direction: row !important;
+    gap: 2rem !important;
+  }
+
+  #hero > div:last-child {
+    width: 120px !important;
+    height: 120px !important;
+    min-width: 120px !important;
+    min-height: 120px !important;
+  }
+
+  /* ---- SECTION PAGE BREAKS ---- */
+  #about,
+  #skills,
+  #credentials,
+  #projects,
+  #contact {
+    page-break-before: always !important;
+    break-before: page !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    border: none !important;
+  }
+
+  /* ---- ABOUT: single column ---- */
+  #about .grid {
+    display: block !important;
+  }
+
+  /* Experience items: NEVER split */
+  #about .relative.pl-8 {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* ---- SKILLS: keep each row together ---- */
+  #skills .space-y-8 > div {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* ---- CREDENTIALS ---- */
+  #credentials .grid {
+    display: block !important;
+  }
+
+  #credentials .grid > div {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* ---- PROJECTS: single column ---- */
+  #projects .grid {
+    display: block !important;
+  }
+
+  /* Each project card: NEVER split across pages */
+  .group[class*="rounded-2xl"] {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 1.5rem !important;
+    border: 1px solid #d4d4d8 !important;
+    overflow: hidden !important;
+  }
+
+  /* ---- FORCE HIDDEN PROJECTS VISIBLE ---- */
+  [class*="max-h-0"] {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    margin-top: 0 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+  /* Hide the View More/Less button */
+  .mt-12.flex.justify-center {
+    display: none !important;
+  }
+
+  /* ---- IMAGE SLIDER: static for print ---- */
+  .aspect-video {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    max-height: 200px !important;
+    overflow: hidden !important;
+  }
+
+  /* ---- CONTACT CARDS ---- */
+  #contact .grid > a,
+  #contact .grid > div {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+  }
+
+  /* ---- FORCE LIGHT THEME FOR PRINT ---- */
+  [class*="dark\:bg-"] {
+    background-color: white !important;
+  }
+
+  [class*="dark\:border-"] {
+    border-color: #e4e4e7 !important;
+  }
+
+  [class*="dark\:text-zinc"] {
+    color: #3f3f46 !important;
+  }
+
+  [class*="shadow"] {
+    box-shadow: none !important;
+  }
+
+  h1, h2, h3, h4 {
+    color: black !important;
+  }
+
+  .text-teal-600,
+  .text-teal-400,
+  [class*="text-teal"] {
+    color: #0d9488 !important;
+  }
+}
